@@ -1,0 +1,28 @@
+<div class='card'>
+    <div class="card-header">
+        Login
+    </div>
+    <div class='card-content'>
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  
+  <mat-form-field appearance="outline" [style.width.px]=500>
+    <mat-label>Username</mat-label>
+    <input matInput  #username="ngModel"id='username' name='username' ngModel>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" [style.width.px]=500>
+    <mat-label>Password</mat-label>
+    <input matInput #password="ngModel"id='password' name='password' ngModel>
+  </mat-form-field>
+
+ 
+
+  <div class="button">
+    <button type="submit" mat-button>Login</button>
+  </div>
+
+</form>
+</div>
+
+</div>

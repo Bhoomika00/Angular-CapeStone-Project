@@ -1,0 +1,44 @@
+#main{
+   
+    
+   
+    align-items: center;
+    width:100%;
+}
+.carousel-item{
+    height: 480px;
+    flex: shrink 0;
+    
+}
+#div2{
+        float: right;
+    
+   
+    text-align: center;
+    margin-right: 200px;
+    
+}
+#div1{
+    
+    margin:20px;
+    float: left;
+    height: 100px;
+    text-align: center;
+    margin-left: 200px;
+    border-radius: 50%;
+    border:2px solid blue;
+    width: 300px;
+    background-color:cadetblue;
+}
+
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    background-color:blue;
+}
+
+
+
+
+.card{
+    background-color:gainsboro;
+    border-radius: 10pt;
+}

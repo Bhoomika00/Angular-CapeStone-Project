@@ -1,0 +1,21 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  #shopName{
+      margin-left: 10px;
+  }
+  .color-icon{
+      color:red;
+      margin-left: 5px;
+
+  }
+
+  #catgeory{
+      background-color: bisque;
+     
+  }
+   a{
+    margin:5px;
+  }
+  

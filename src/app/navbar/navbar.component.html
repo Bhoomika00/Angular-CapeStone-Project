@@ -1,0 +1,37 @@
+<p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span id='shopName'routerLink='home'>InstaMart</span>
+      <mat-icon class='color-icon'>shopping_basket</mat-icon>
+      <span class="example-spacer"></span>
+      <button mat-button [style.margin-right.px]=10 routerLink='login'>Login</button>
+      <button mat-icon-button class="example-icon shopping_cart-icon" routerLink='cart'
+      aria-label="Example icon-button with shopping_cart icon">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+
+    </mat-toolbar-row>
+
+    <mat-toolbar-row id='catgeory'>
+      <span id='items'>
+        <a routerLink='products'>All Products</a>
+        <a>Mobiles</a>
+        <a>Food</a>
+        
+      </span>
+      <div>
+      <a id='about' style="float: right;"routerLink='about-us'>About Us</a>
+      <a id='contact-us' style="float: right;"routerLink='contact-us'>Contact Us</a>
+      </div>
+    </mat-toolbar-row>
+ 
+
+    
+    </mat-toolbar>
+
+  </p>
+  
+    

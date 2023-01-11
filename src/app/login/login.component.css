@@ -1,0 +1,17 @@
+.card-content{
+    width:300px;
+   text-align: center;
+    
+   
+    
+}
+
+.card{
+    align-items: center;
+    text-align: center;
+}
+  button[mat-button]{
+      background-color: blue;
+      
+  }
+   
