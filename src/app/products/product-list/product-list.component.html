@@ -1,0 +1,72 @@
+<!-- <div class="table-responsive">
+    <table class="table table-light table-striped table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productList;let i = index">
+                <td>{{i+1}}</td>
+                <td>
+                    {{p.id}}
+                </td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td><img src={{p.imageurl}} [style.margin.px]='10' [style.width.px]='200' [style.height.px]='200' />
+                </td>
+            </tr>
+        </tbody>
+
+
+    </table>
+</div> -->
+
+  <div class="row">
+    <div class="card" *ngFor="let  p of productList;let i=index">
+
+
+      <mat-card class="example-card">
+
+        <img mat-card-image src="{{p.imageurl}}" alt="Photo of product"
+        [style.margin.px]='10' [style.width.px]='200' [style.height.px]='200' >
+        
+        <mat-card-title>{{p.name}}</mat-card-title>
+        
+        <mat-card-content>
+
+          <p>Price:{{p.price | currency:'INR'}}</p>
+                    <p><app-rating [rating]='p.rating' style='margin-left :30px;'></app-rating>
+          </p>
+         
+
+        </mat-card-content>
+        <div>
+        <button class="btn btn-info" [routerLink]="['/products',p.id]">View More Details</button>
+        <br>
+            <i class="fa fa-trash" style="font-size:24px;margin-right: 5px;" aria-hidden="true" 
+            (click)='deleteEntry(p)'></i>
+           
+                <i class="fa fa-edit" style="font-size:24px"><a routerLink='addProduct'></a></i>
+
+            
+    </div>
+       
+
+    </mat-card>
+
+
+  </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+ 
+
+
+
+

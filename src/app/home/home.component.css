@@ -1,11 +1,15 @@
-.carousel-item{
+/*.carousel-item{
     height: 480px;
     flex: shrink 0;
     
-}
+}*/
 
 .carousel-control-next-icon,.carousel-control-prev-icon{
     background-color:blue;
+}
+img{
+    width:70%;
+    height: 300px;
 }
 
 h1{

@@ -1,0 +1,41 @@
+[
+    {
+    "id": 101,
+      "name":"Shirts",
+      
+      "category":"Clothing",
+      "price": 500,
+      "rating": 3.5,
+      "imageurl":"../../assets/images/shirt.jpg",
+      "qty": 0
+    },
+    {"id": 102,
+    "name":"Apple",
+    
+    "category":"Food",
+    "price": 100,
+    "rating": 5,
+    "imageurl":"../../assets/images/apple.jpg",
+    "qty": 0
+    },
+    {
+    "id": 501,
+      "name": "Laptop",
+      
+      "category":"Electronics",
+      "price": 50000,
+      "rating": 4,
+      "imageurl":"../../assets/images/laptop.jpg",
+      "qty": 0
+    },
+    {
+    "id": 504,
+      "name":"Mobile",
+      
+      "category":"Electronics",
+      "price": 10000,
+      "rating": 4.5,
+      "imageurl":"../../assets/images/mobile.jpg",
+      "qty": 0
+    }
+]

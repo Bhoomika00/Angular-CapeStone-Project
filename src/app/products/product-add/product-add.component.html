@@ -1,0 +1,41 @@
+<div class="card">
+   <!--<div class="card-header"><h2 class="text-center">{{pageTitle}}</h2></div>-->
+    <div class="card-body" id='main'>
+    <form> <!--[formGroup]="addProduct">-->
+
+      <div class="form-group">
+        <label for="name">Product Name:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter name</mat-label> 
+          <input matInput  #name type='text' formControlName='name' id='name' name='name'class="form-control" required> 
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label for="brand">Product Brand:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter Brand</mat-label> 
+          <input matInput  #name type='text' formControlName='brand' id='brand' name='brand'class="form-control" required> 
+        </mat-form-field>
+
+      </div>
+
+      <div class="form-group">
+        <label for="category">Product Category:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter Category</mat-label> 
+          <input matInput  #name type='text' formControlName='category' id='category' name='category'class="form-control" required> 
+        </mat-form-field>
+
+        
+
+      </div>
+
+
+      
+
+
+      <button [disabled]='!addProduct.valid ||!addProduct.dirty' id='btn'class="btn btn-success">Save Entry</button>
+    </form>
+    </div>
+    </div>

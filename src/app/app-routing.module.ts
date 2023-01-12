@@ -5,7 +5,8 @@ import { CartComponent } from './cart/cart.component';
 import { ContactUsComponent } from './contactUs/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ProductListComponent } from './products/product-list.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'home'},
@@ -13,8 +14,13 @@ const routes: Routes = [
   {path:'about-us',component:AboutUsComponent},
   {path:'cart',component:CartComponent}  ,
   {path:'login',component:LoginComponent},
-  {path:'products',component:ProductListComponent},
-  {path:'contact-us',component:ContactUsComponent}//this will be module
+  {path:'contact-us',component:ContactUsComponent},//this will be module
+  {path:'products',
+  component:ProductListComponent,
+  loadChildren:()=>import('../app/products/product.module').then((m)=>m.ProductModule),
+},
+{path:'products/:id',component:ProductDetailComponent}
+
 ];
 
 @NgModule({
