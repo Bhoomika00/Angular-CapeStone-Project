@@ -19,6 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+
 
 
     
@@ -41,6 +44,8 @@ import { AppEffects } from './app.effects';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    CommonModule,
     ReactiveFormsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
     HttpClientModule,

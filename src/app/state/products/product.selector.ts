@@ -30,7 +30,8 @@ export const getCurrentProduct = createSelector(
         description:'',
         qty:0
       };
-    } else {
+    } 
+    else {
       return currentProductId ? state.products.find(p => p.id === currentProductId) : null;
     }
   }

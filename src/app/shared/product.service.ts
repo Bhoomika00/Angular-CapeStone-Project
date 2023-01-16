@@ -123,13 +123,16 @@ newProduct():IProduct{
       //put http method
       return this.http.put<IProduct>(url,product, {headers}).pipe(
   
-      tap(()=>{console.log('update product'+product.id);
-      const foundIndex =this.products.findIndex(item=>item.id === product.id);
-      }),
-      map(()=>product),
-      catchError(this.errorHandler)
-      );
-  
+        tap(()=>{console.log('update product'+product.id);
+        const foundIndex =this.products.findIndex(item=>item.id === product.id);
+        
+        }),
+        map(()=>product),
+        catchError(this.errorHandler)
+        );
+    
+    
+    
      }
   
   

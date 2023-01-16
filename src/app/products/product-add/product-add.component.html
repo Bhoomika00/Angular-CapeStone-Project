@@ -1,13 +1,18 @@
-<div class="card">
-   <!--<div class="card-header"><h2 class="text-center">{{pageTitle}}</h2></div>-->
+<div class="card"
+*ngIf='product'>
+   <div class="card-header">
+     <h2 class="text-center">{{pageTitle}}</h2>
+    </div>
     <div class="card-body" id='main'>
-    <form> <!--[formGroup]="addProduct">-->
+    <form [formGroup]="addProduct"
+    (ngSubmit)="saveProduct(product)">
 
       <div class="form-group">
         <label for="name">Product Name:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter name</mat-label> 
-          <input matInput  #name type='text' formControlName='name' id='name' name='name'class="form-control" required> 
+          <input matInput
+          (blur)='blur()'  #name type='text' formControlName='name' id='name' name='name' required> 
         </mat-form-field>
       </div>
 
@@ -15,7 +20,8 @@
         <label for="brand">Product Brand:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Brand</mat-label> 
-          <input matInput  #name type='text' formControlName='brand' id='brand' name='brand'class="form-control" required> 
+          <input  (blur)='blur()'
+           matInput  #brand type='text' formControlName='brand' id='brand' name='brand' required> 
         </mat-form-field>
 
       </div>
@@ -24,18 +30,71 @@
         <label for="category">Product Category:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Category</mat-label> 
-          <input matInput  #name type='text' formControlName='category' id='category' name='category'class="form-control" required> 
+          <input matInput  (blur)='blur()'
+            #category type='text' formControlName='category' id='category' name='category' required> 
         </mat-form-field>
-
-        
-
       </div>
 
 
       
+      <div class="form-group">
+        <label for="description">Product Description:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter Description</mat-label> 
+          <textarea matInput  (blur)='blur()'
+           #description type='text' formControlName='description' id='category' name='category' required> 
+            </textarea>
+        </mat-form-field>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="price">Product Price:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter Price</mat-label> 
+          <input matInput  (blur)='blur()'
+            #price type='number' formControlName='price' id='price' name='price' required> 
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label for="rating">Product rating:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter rating</mat-label> 
+          <input matInput  (blur)='blur()'
+           #rating type='number' formControlName='rating' id='rating' name='rating' required> 
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label for="imageurl">Product Image:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter Image url</mat-label> 
+          <input matInput  (blur)='blur()'
+           #imageurl type='text' formControlName='imageurl' id='imageurl' name='imageurl' required> 
+        </mat-form-field>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="qty">Product Quantity:</label>
+        <mat-form-field appearance="fill" [style.width.px]=500>
+           <mat-label>Enter Quantity</mat-label> 
+          <input matInput  (blur)='blur()'
+           #qty type='number' formControlName='qty' id='qty' name='qty' required> 
+        </mat-form-field>
+      </div>
 
 
-      <button [disabled]='!addProduct.valid ||!addProduct.dirty' id='btn'class="btn btn-success">Save Entry</button>
+        
+
+
+
+      
+
+      <button
+      [disabled]='!addProduct.valid ||!addProduct.dirty' 
+       id='btn'class="btn btn-success">Save Entry</button>
     </form>
     </div>
     </div>

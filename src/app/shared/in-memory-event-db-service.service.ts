@@ -62,6 +62,9 @@ export class InMemoryEventDbService implements InMemoryDbService {
         }
 
     ]
-    return{products}
+
+    //cart db
+    const cartItems:IProduct[]=[];
+    return{products,cartItems}
   }
 }

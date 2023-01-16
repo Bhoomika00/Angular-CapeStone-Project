@@ -1,0 +1,39 @@
+#main{
+    
+    display:flex;
+    flex-direction:row;
+    text-align: center;
+    padding-left: 10px;
+    margin:20px
+}
+
+mat-card-subtitle p{
+    margin: 0px;
+    padding:0px;
+}
+
+
+
+
+.card1,table{
+    margin:0 auto;
+   
+}
+
+
+.content{
+    margin-left: 20px;
+   text-indent: 10pt;
+    
+}
+
+#addCart{
+    background-color:orange;
+    width:200px;
+    margin:0 auto;
+}
+
+.example-card{
+    width:300px;
+    height:fit-content;
+}

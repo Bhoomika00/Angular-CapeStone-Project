@@ -52,4 +52,18 @@ export class ProductListComponent implements OnInit {
 
   }
 
+  addnewproduct(){
+    console.log('in new product');
+     //using ngrx
+    this.store.dispatch(ProductActions.initializeCurrentProduct());
+    this.router.navigate([this.href,'addProduct'])
+  
+      
+  }
+  
+  productSelected(product:IProduct):void{
+        this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
+       }
+  
+
 }

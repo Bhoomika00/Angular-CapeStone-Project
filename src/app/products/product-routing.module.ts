@@ -4,6 +4,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
+  
    {path:'addProduct',component:ProductAddComponent}
 ];
 

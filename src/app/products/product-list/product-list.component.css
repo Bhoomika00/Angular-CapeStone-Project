@@ -1,12 +1,21 @@
 .card{
-    margin: 20px 20px;
-    display: flex;
+    margin: 0 auto;
+    /*display:block;*/
     flex-direction:column;
     text-align: center;
-    align-items: center;
+    
    
    
 }
 mat-card-content{
     text-align: center;
+}
+
+img{
+    display: block;
+}
+
+p{
+     margin: 0px;
+     padding:0px;
 }

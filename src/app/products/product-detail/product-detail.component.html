@@ -1,1 +1,79 @@
-<p>product-detail works!!</p>
+<div id='main' *ngIf="product">
+
+    <!--card for image-->
+    <div class='image-card'>
+        
+            <img mat-card-image src="{{product.imageurl}}" alt="Photo of product" 
+                [style.width.px]='250' [style.height.px]='300'>
+        
+    </div>
+
+    <!--div to show for more details-->
+    <div class='card1'>
+        <mat-card class="details-card" [style.width.px]=400>
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>
+                <p>{{product.price | currency:"INR"}}</p>
+                
+                    <app-rating [rating]='product.rating' style='margin-left :30px;'>
+                </app-rating> 
+               
+            </mat-card-subtitle>
+            
+            
+
+            <mat-card-content>
+                <hr>
+                <table>
+                    <tr>
+                        <td>Brand:  </td>
+                        <td></td>
+                        <td class='content'>{{product.brand}}</td>
+                    </tr>
+                    <tr>
+                        <td>Category:  </td>
+                        <td></td>
+                        <td class='content'>{{product.category}}</td>
+                    </tr>
+                </table>
+                <hr>
+
+                
+
+                <div>
+                    <label for='Description'>About this product:</label>
+                    <br>
+                <h4>
+                    {{product.description}}
+
+                </h4>
+            </div>
+
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+
+    <div class='card1'>
+        <mat-card class="example-card">
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>
+                <p>{{product.price | currency:"INR"}}</p>
+                <input type="number" min=1 value="1" placeholder="1" [(ngModel)]='product.qty'/>
+            </mat-card-subtitle>
+            <button mat-button id='addCart'
+            (click)='addCartItem(product)'>
+                ADD TO CART
+                <!--router link to cart component-->
+            </button>
+            <br>
+            <br>
+            <footer>***Delivery in 1 day***</footer>
+        </mat-card>
+
+    </div>
+
+
+
+</div>
+<!--main div end-->
