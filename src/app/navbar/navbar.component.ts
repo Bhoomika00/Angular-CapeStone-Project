@@ -11,7 +11,7 @@ import { AuthService } from '../user/auth.service';
 })
 export class NavbarComponent {
 
-  title = 'InstaSMart';
+ 
   searchItem='';
   //isLoggedIn:boolean=false;
   public totalItem : number = 0;
@@ -35,11 +35,6 @@ btnText:string='Login'
      this.totalItem = res.length;
    })
    
-   /*console.log('menu on init');
-   this.isLoggedIn=this.authservice.isLoggedIn;
-    if(sessionStorage.getItem('isLogged')==='true'){
-     this.isLoggedIn=true;
-   } console.log(this.isLoggedIn, 'from init of menu ');*/
    
     }
 
@@ -60,14 +55,6 @@ btnText:string='Login'
       console.log('menu destroyed');}
  
  
-      ngOnChanges():void{
- 
-        console.log('menu component changes');
-        /*
-        if(sessionStorage.getItem('isLogged')=='true'){
-          this.isLoggedIn=true;
-          */
-        }
       }
 
      

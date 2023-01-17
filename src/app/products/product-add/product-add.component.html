@@ -1,7 +1,7 @@
 <div class="card"
 *ngIf='product'>
    <div class="card-header">
-     <h2 class="text-center">{{pageTitle}}</h2>
+     <h2 class="text-center pageTitle">{{pageTitle}}</h2>
     </div>
     <div class="card-body" id='main'>
     <form [formGroup]="addProduct"
@@ -42,7 +42,7 @@
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Description</mat-label> 
           <textarea matInput  (blur)='blur()'
-           #description type='text' formControlName='description' id='category' name='category' required> 
+           #description type='text' formControlName='description' id='description' name='description' required> 
             </textarea>
         </mat-form-field>
       </div>

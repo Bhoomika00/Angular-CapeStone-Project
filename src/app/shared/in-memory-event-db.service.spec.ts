@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { InMemoryEventDbServiceService } from './in-memory-event-db-service.service';
+import { InMemoryEventDbService } from './in-memory-event-db-service.service';
 
 describe('InMemoryEventDbServiceService', () => {
   let service: InMemoryEventDbService;

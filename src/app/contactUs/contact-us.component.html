@@ -1,4 +1,4 @@
-<h3>Contact Us</h3>
+<h3 id='pageTitle'>{{pageTitle}}</h3>
 
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div id="main" class="form-group">
@@ -6,9 +6,10 @@
             <label for="firstName">First Name</label><br>
             <mat-form-field appearance="outline" [style.width.px]=400>
                 <mat-label>First name</mat-label>
-                <input matInput formControlName='firstName' id='firstName' name='firstName'>
+                <input matInput #firstName formControlName='firstName' type='text' id='firstName' name='firstName'>
                 <mat-hint align="end">Not more than 20 characters long.</mat-hint>
-
+                <mat-error *ngIf="myError('firstName', 'required')">First Name is required</mat-error>
+                <mat-error *ngIf="myError('firstName', 'minlength')">Minimum 2 characters  are required</mat-error>
             </mat-form-field>
         </p>
        
@@ -19,15 +20,24 @@
             <label for="lastName">Last name</label><br>
             <mat-form-field appearance="outline" [style.width.px]=400>
                 <mat-label>Last Name</mat-label>
-                <input matInput formControlName='lastName' id='lastName' name='lastName'>
-               
+                <input matInput #lastName formControlName='lastName'type='text' id='lastName' name='lastName'>
+                <mat-error *ngIf="myError('lastName', 'required')">Last Name is required</mat-error>
+                <mat-error *ngIf="myError('lastName', 'minlength')">Minimum 2 characters  are required</mat-error>
+
             </mat-form-field>
        </p>
        <p>
             <label for="store">Store</label><br>
             <mat-form-field appearance="outline" [style.width.px]=400>
-                <mat-label>Store</mat-label>
-                <input matInput formControlName='store' id='store' name='store'>
+                <mat-label>Store:</mat-label>
+                <!--<input matInput formControlName='store' id='store' name='store'>-->
+                <select #store matNativeControl name="store" id="store">
+                    <option value="reliance">Reliance Store,Pune</option>
+                    <option value="jio">Jio Mart,Mumbai</option>
+                    <option value="shopcart">ShopCart,Aurangabad</option>
+                    <option value="insta">Insta Mart</option>
+                  </select>
+                  <mat-error *ngIf="myError('store', 'required')">Selection required</mat-error>
              
             </mat-form-field>
         </p>
@@ -37,14 +47,16 @@
             <label for='comments'>Comments</label><br>
             <mat-form-field appearance="outline" [style.width.px]=400>
                 <mat-label>Comments</mat-label>
-                <textarea matInput formControlName='comments' name='comments' id='comments' name='comments'></textarea>
-                <!-- <mat-error *ngIf="myError('dep', 'required')">Please enter Deparment</mat-error> -->
+                <textarea matInput #comments formControlName='comments' name='comments' id='comments'></textarea>
+                <mat-error *ngIf="myError('comments', 'required')">Comments are required</mat-error>
+                <mat-error *ngIf="myError('comments', 'minlength')">Minimum 4 characters  are required</mat-error>
+                <mat-error *ngIf="myError('comments', 'maxlength')">Only 100 characters allowed</mat-error>
             </mat-form-field>
             </p>
         
 
 
-        <p><button id="btn" class="btn btn-primary">Submit</button></p>
+        <p><button id="btn" [disabled]='!contactForm.valid'class="btn btn-primary">Submit</button></p>
 
     </div>
 </form>

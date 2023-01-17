@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { AboutUsComponent } from './about-us.component';
 
@@ -19,5 +20,13 @@ describe('AboutUsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should check the page title',()=>{
+    const ip=fixture.debugElement.query(By.css('#pageTitle'));
+    expect(ip).toBeTruthy();
+
+    expect(ip.nativeElement.textContent).toContain('About Us');
+
   });
 });
