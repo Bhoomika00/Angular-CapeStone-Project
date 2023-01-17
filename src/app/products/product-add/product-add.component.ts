@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Observable, tap } from 'rxjs';
+import { Observable, reduce, tap } from 'rxjs';
 import { GenericValidator } from 'src/app/shared/genericvalidator';
 import { getCurrentProduct } from 'src/app/state/products/product.selector';
 import { State } from 'src/app/state/products/product.state';
@@ -22,6 +22,7 @@ export class ProductAddComponent implements OnInit {
 
   pageTitle = 'Edit Product';
   errorMessage = '';
+  buttonName:string='Save Entry';
 
 
 
@@ -152,6 +153,23 @@ export class ProductAddComponent implements OnInit {
     this.displayMessage = this.genericValidator.processMessages(this.addProduct);
 
   }
+
+  deleteEntry(a:IProduct):void{
+    /* this.buttonName='Delete entry';
+    var ele=document.getElementById('btn'); 
+    if(ele)  ele.style.backgroundColor="red";*/
+    if(a && a.id){
+
+      if(confirm(`Are you sure you want to delete ${a.name} details`)){
+                this.store.dispatch(ProductActions.deleteProduct({ productId: a.id }));  
+      }
+      else{
+                this.store.dispatch(ProductActions.clearCurrentProduct()); 
+      }
+    }
+
+  }
+
 
 
 

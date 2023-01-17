@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CartComponent } from './cart/cart.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './user/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './materialModule/material.module';
@@ -21,6 +21,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -35,7 +36,8 @@ import { CommonModule } from '@angular/common';
     AboutUsComponent,
     CartComponent,
     LoginComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CheckoutComponent
     
 
   

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { IProduct } from '../products/product';
+import { IUser } from '../user/login/user';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,28 @@ export class InMemoryEventDbService implements InMemoryDbService {
 
     //cart db
     const cartItems:IProduct[]=[];
-    return{products,cartItems}
+
+    //users db
+    const users:IUser[]=[
+      {
+        "id":1,
+        "userName":"Bhoomika",
+        "password":"abcd",
+        "isAdmin":true
+      },
+      {
+        "id":2,
+        "userName":"admin",
+        "password":"admin",
+        "isAdmin":true
+      },
+      {
+        "id":3,
+        "userName":"Sakura",
+        "password":"sakura",
+        "isAdmin":false
+      }
+    ]
+    return{products,cartItems,users}
   }
 }

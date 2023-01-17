@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { IProduct } from '../products/product';
 import { CartService } from '../shared/cart.service';
 
@@ -7,7 +7,7 @@ import { CartService } from '../shared/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnChanges {
+export class CartComponent implements OnInit {
 
   cartItems:IProduct[]=[];
  
@@ -17,20 +17,19 @@ export class CartComponent implements OnChanges {
   totalPrice:number=0;
 
   constructor(private cartService:CartService){}
-  ngOnChanges(changes: SimpleChanges): void {
-    this.cartItems.forEach(item => {
-      this.totalPrice = (item.qty * item.price);
-      //this.cartTotal+=this.totalPrice;
-    })
-  }
+  
 
   ngOnInit(): void {
     this.cartService.getCartItems().subscribe((items: IProduct[]) => {
       this.cartItems = items;
       this.calcCartTotal();
+      console.log(items);
     })
 
     
+  }
+  ngOnchanges():void{
+    this.calcCartTotal();
   }
 
   
@@ -41,5 +40,28 @@ export class CartComponent implements OnChanges {
       this.cartTotal += (item.qty * item.price)
     })
   }
-  
+
+  incr(item:IProduct){
+    item.qty++;
+    this.calcCartTotal();
+    
+  }
+
+  decr(item:IProduct){
+    item.qty--;
+    this.calcCartTotal();
+  }
+
+  removeItem(item:IProduct){
+
+    if(confirm(`Are you sure to remove the ${item.name} from cart?`)){
+    this.cartService.deleteItem(item.id).subscribe();
+      console.log(item);
+      this.calcCartTotal();
+    
+    console.log(this.cartItems);
+    }
+    this.calcCartTotal();
+  }
+
 }

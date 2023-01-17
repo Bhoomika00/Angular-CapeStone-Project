@@ -39,31 +39,24 @@ export class ProductListComponent implements OnInit {
    
   }
 
-  deleteEntry(a:IProduct):void{
-    if(a && a.id){
-
-      if(confirm(`Are you sure you want to delete ${a.name} details`)){
-                this.store.dispatch(ProductActions.deleteProduct({ productId: a.id }));  
-      }
-      else{
-                this.store.dispatch(ProductActions.clearCurrentProduct()); 
-      }
-    }
-
-  }
-
-  addnewproduct(){
-    console.log('in new product');
-     //using ngrx
-    this.store.dispatch(ProductActions.initializeCurrentProduct());
-    this.router.navigate([this.href,'addProduct'])
   
-      
-  }
+  
   
   productSelected(product:IProduct):void{
         this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
        }
+
+      
+         //document.getElementById('admin')?.hidden;
+         addnewproduct(){
+          console.log('in new product');
+           //using ngrx
+          this.store.dispatch(ProductActions.initializeCurrentProduct());
+          this.router.navigate([this.href,'addProduct'])
+            
+        }
+      
+        
   
 
 }

@@ -19,3 +19,7 @@ p{
      margin: 0px;
      padding:0px;
 }
+#admin{
+    background-color: orange;
+    float: right;
+}

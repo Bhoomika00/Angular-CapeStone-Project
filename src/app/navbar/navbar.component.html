@@ -1,37 +1,62 @@
-<p>
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<div>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
-      <span id='shopName'routerLink='home'>InstaMart</span>
+       --><span id='shopName' routerLink='home'>InstaMart</span>
       <mat-icon class='color-icon'>shopping_basket</mat-icon>
+      <div>
+        <a id='home' routerLink='home'>Home</a>
+        <a id='products' routerLink='products'>Products</a>
+        <a id='about' routerLink='about-us'>About Us</a>
+        <a id='contact-us' routerLink='contact-us'>Contact Us</a>
+      </div>
       <span class="example-spacer"></span>
-      <button mat-button [style.margin-right.px]=10 routerLink='login'>Login</button>
+      
+       <!--<button mat-button [style.margin-right.px]=10 routerLink='login'>{{btnText}}</button> -->
+      <!--
+        <div *ngIf="isLoggedIn">
+          <a style="color: white;font-size:small" [routerLink]="['/login']">Welcome {{userName}}</a>
+        </div>
+        <div *ngIf="!isLoggedIn">
+          <button [routerLink]="['/login']" mat-raised-button color="primary">Login</button>
+        </div>
+        <div *ngIf="isLoggedIn">
+          <button [routerLink]="['login']" (click)="logOut()" style="cursor:pointer;" mat-raised-button
+            color="primary">LogOut</button>
+        </div>
+        -->
+
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item"
+      *ngIf="isLoggedIn">
+      
+      <a class='nav-link' id='welcomeText'>Welcome {{userName}}</a>
+    </li>
+    <div>
+        <span>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+              <a class="nav-link" routerLink="/login">Login</a>
+              </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" (click)="logOut()" style="cursor:pointer;">LogOut</a>
+          </li>
+        </span>
+      </div>
+        </ul>
+        
+
+
+    
       <button mat-icon-button class="example-icon shopping_cart-icon" routerLink='cart'
-      aria-label="Example icon-button with shopping_cart icon">
+        aria-label="Example icon-button with shopping_cart icon">
         <mat-icon>shopping_cart</mat-icon>
       </button>
 
-    </mat-toolbar-row>
 
-    <mat-toolbar-row id='catgeory'>
-      <span id='items'>
-        <a routerLink='products'>All Products</a>
-        <a>Mobiles</a>
-        <a>Food</a>
-        
-      </span>
-      <div>
-      <a id='about' style="float: right;"routerLink='about-us'>About Us</a>
-      <a id='contact-us' style="float: right;"routerLink='contact-us'>Contact Us</a>
-      </div>
     </mat-toolbar-row>
- 
-
-    
     </mat-toolbar>
 
-  </p>
-  
-    
+
+</div>

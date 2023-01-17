@@ -1,0 +1,65 @@
+
+    <div (click)='visibility()' >UPI payment</div>
+<div class='upi-icon' *ngIf='show1'>
+    <i class='fab fa-google-pay' style='color:red'>Google Pay</i>
+    <p>Amazon pay</p>
+</div>
+
+<button id='card' (click)='visibility()'>Card Payment</button>
+<form [formGroup]="checkOut" (ngSubmit)="onSubmit()">
+<div class="col-100" *ngIf='show'>
+    
+    <label for="fname">Accepted Cards</label>
+    <div class="icon-container">
+      <i class="fa fa-cc-visa" style="color:navy;"></i>
+      <i class="fa fa-cc-amex" style="color:blue;"></i>
+      <i class="fa fa-cc-mastercard" style="color:red;"></i>
+      <i class="fa fa-cc-discover" style="color:orange;"></i>
+    </div>
+    <p>
+        <label for="cname">Card holder Name:</label>
+        <mat-form-field appearance="outline" [style.width.px]=400>
+            <mat-label>Name:</mat-label>
+            <input matInput formControlName='cname' type='text'id='cname' name='cname'/>
+           
+        </mat-form-field>
+   </p>
+   <p>
+    <label for="cnum">Credit card number</label>
+    <mat-form-field appearance="outline" [style.width.px]=400>
+        <mat-label>Card Number:</mat-label>
+        <input matInput formControlName='cnum' type='text' id='cnum' name='cnum'/>
+       
+    </mat-form-field>
+</p>
+    <p>
+    <label for="expDate">Expiry Date:</label>
+    <mat-form-field appearance="outline" [style.width.px]=400>
+        <mat-label>Expiry Date</mat-label>
+        <input matInput formControlName='expDate' id='expDate' name='expDate'/>
+       
+    </mat-form-field>
+    
+</p>
+
+    <p>
+        <label for="cvv">CVV No:</label>
+        <mat-form-field appearance="outline" [style.width.px]=400>
+            <mat-label>CVV</mat-label>
+            <input matInput formControlName='cvv' id='cvv' name='cvv'/>
+           
+        </mat-form-field>
+    </p>
+
+    <p>Amount: {{cartTotal | currency:'INR'}}</p>
+    
+
+    <button mat-button type="submit" [disabled]='!checkOut.valid'>Pay</button>
+
+      
+    </div>
+</form>
+
+
+   
+  

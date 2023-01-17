@@ -15,11 +15,13 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductAddComponent } from './product-add/product-add.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 
 @NgModule({
-  declarations: [ProductListComponent,RatingComponent, ProductDetailComponent, ProductAddComponent],
+  declarations: [ProductListComponent,RatingComponent, 
+    ProductDetailComponent, ProductAddComponent, AdminHomeComponent],
   imports: [
     
     FormsModule,

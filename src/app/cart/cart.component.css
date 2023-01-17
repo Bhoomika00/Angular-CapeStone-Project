@@ -1,3 +1,12 @@
 img{
     float:left;
 }
+#continue{
+    
+    text-align: center;
+    /*display: inline-flex;*/
+}
+
+button{
+    flex: 1 1 auto;
+}

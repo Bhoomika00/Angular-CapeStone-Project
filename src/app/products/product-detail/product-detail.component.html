@@ -59,7 +59,7 @@
             <mat-card-title>{{product.name}}</mat-card-title>
             <mat-card-subtitle>
                 <p>{{product.price | currency:"INR"}}</p>
-                <input type="number" min=1 value="1" placeholder="1" [(ngModel)]='product.qty'/>
+                <input type="number" min=1 value="0" [(ngModel)]='product.qty'/>
             </mat-card-subtitle>
             <button mat-button id='addCart'
             (click)='addCartItem(product)'>

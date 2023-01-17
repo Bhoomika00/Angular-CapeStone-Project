@@ -1,4 +1,5 @@
 <div id='main'>
+ <div *ngIf='cartItems.length'>
 <div  *ngFor="let item of cartItems">
     <div class="card rounded-3 mb-4">
         <div class="card-body p-4">
@@ -15,27 +16,27 @@
             </div>
             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
               <button class="btn btn-link px-2"
-                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                (click)="decr(item)">
                 <i class="fa fa-minus"></i>
               </button>
 
               <!--<input id="form1" min="1" name="quantity" type="number"
                 class="form-control form-control-sm" />-->
-                <span>{{item.qty}}</span>
+                <input type="number" min=0 value="0" [(ngModel)]='item.qty'/>
 
               <button class="btn btn-link px-2"
-                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                (click)="incr(item)">
                 <i class="fa fa-plus"></i>
               </button>
             </div>
             <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
               <h5 class="mb-0">Unit Price:<br>{{item.price | currency:'INR'}}</h5>
             </div>
-            <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
+           <!--  <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
                 <h5 class="mb-0">Total Price:<br>{{totalPrice | currency:'INR'}}</h5>
-              </div>
+              </div> -->
             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-              <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+              <i class="fa fa-trash fa-lg text-danger" (click)=removeItem(item)></i>
             </div>
           </div>
         </div>
@@ -44,5 +45,11 @@
         
     </div>
     
-    <p><strong>Total order:</strong> {{ cartTotal | currency:'INR' }}</p>
+    <p ><strong>Total order:</strong> {{ cartTotal | currency:'INR' }}</p>
+
+
+    <button mat-button  id='checkOut' class='col-50 btn btn-primary' routerLink='/checkout'>Checkout</button>
+  </div>
+  <div *ngIf='!cartItems.length' style='color:red;text-align: center;'>No items in cart.Add items to cart to continue Shopping.</div>
+  <button mat-button class='btn btn-success'id='continue' routerLink='/products'>Continue Shopping</button>
 </div>
