@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from '../products/product';
 import { CartService } from '../shared/cart.service';
@@ -9,12 +9,12 @@ import { AuthService } from '../user/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnChanges {
 
  
   searchItem='';
   //isLoggedIn:boolean=false;
-  public totalItem : number = 0;
+  @Input() totalItem : number = 0;
 cart:IProduct[]=[];
 btnText:string='Login'
 
@@ -27,16 +27,41 @@ btnText:string='Login'
  
   }
   constructor(private router:Router,private authservice:AuthService,private cartService : CartService){}
+  ngOnChanges(changes: SimpleChanges): void {
+    /* this.cartService.getProducts()
+    .subscribe(res=>{
+      //this.cart=res;
+     this.totalItem=res.length
+    })
+    */  
+ 
+    // this.totalItem=this.cart.length;
+    // console.log(this.totalItem)
+
+    //this.totalItem=this.cartService.cartItems.length;
+   
+  }
  
  
   ngOnInit(): void {
-   this.cartService.getCartItems()
+   this.cartService.getProducts()
    .subscribe(res=>{
-     this.totalItem = res.length;
+     
+     
+     //this.totalItem=res.length
+     this.cart=res;
+     
    })
-   
+   //this.totalItem=this.cartService.cartItems.length;
+
+
    
     }
+    cartCount(){
+      return this.cart.reduce((sum,item)=>sum+=item.qty,0);
+    }
+
+
 
     get isLoggedIn():boolean{
       //service to return the loggedInstatus ofthe user

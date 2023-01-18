@@ -38,7 +38,8 @@ export class ProductDetailComponent implements OnInit,OnDestroy{
   }
 
   addCartItem(p:IProduct){
-    this.cartService.addProductToCart(p).subscribe((res)=>console.log('in the addcartitem of detail'));
+    
+    this.cartService.addToCart(p);//subscribe((res)=>console.log('in the addcartitem of detail'));
   }
 
 

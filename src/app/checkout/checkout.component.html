@@ -1,5 +1,5 @@
 
-    <div (click)='visibility()' >UPI payment</div>
+    <button (click)='visibility()'id ='upi' >UPI payment</button>
 <div class='upi-icon' *ngIf='show1'>
     <i class='fab fa-google-pay' style='color:red'>Google Pay</i>
     <p>Amazon pay</p>
@@ -20,7 +20,9 @@
         <label for="cname">Card holder Name:</label>
         <mat-form-field appearance="outline" [style.width.px]=400>
             <mat-label>Name:</mat-label>
-            <input matInput formControlName='cname' type='text'id='cname' name='cname'/>
+            <input matInput #cname formControlName='cname' pattern="[A-Za-z]*" type='text'id='cname' name='cname'/>
+            <mat-error *ngIf="myError('cname', 'required')">Name is required</mat-error>
+             <mat-error *ngIf="myError('cname', 'minlength')">Minimum 2 characters  are required</mat-error>
            
         </mat-form-field>
    </p>
@@ -29,7 +31,9 @@
     <mat-form-field appearance="outline" [style.width.px]=400>
         <mat-label>Card Number:</mat-label>
         <input matInput formControlName='cnum' type='text' id='cnum' name='cnum'/>
-       
+        <mat-error *ngIf="myError('cnum', 'required')">Name is required</mat-error>
+        <mat-error *ngIf="myError('cnum', 'maxlength')">12 digit credit card number is required</mat-error>
+           
     </mat-form-field>
 </p>
     <p>

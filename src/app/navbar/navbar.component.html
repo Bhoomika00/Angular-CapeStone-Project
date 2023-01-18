@@ -36,10 +36,12 @@
 
 
     
-      <button mat-icon-button class="example-icon shopping_cart-icon" routerLink='cart'
+       <button mat-icon-button class="example-icon shopping_cart-icon" routerLink='cart'
         aria-label="Example icon-button with shopping_cart icon">
-        <mat-icon>shopping_cart</mat-icon>
-      </button>
+        
+        <mat-icon matBadge="{{cartCount()}}">shopping_cart</mat-icon>
+      </button> 
+    
 
 
   

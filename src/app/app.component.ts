@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IProduct } from './products/product';
+import { CartService } from './shared/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'InstaMart';
+ 
+ 
+    
+    
+     
 }

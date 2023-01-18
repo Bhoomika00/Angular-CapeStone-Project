@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.cartService.getCartItems().subscribe((items: IProduct[]) => {
+    this.cartService.getProducts().subscribe((items: IProduct[]) => {
       this.cartItems = items;
       this.calcCartTotal();
       console.log(items);
@@ -48,20 +48,26 @@ export class CartComponent implements OnInit {
   }
 
   decr(item:IProduct){
+    if(item.qty==1){ 
+      if(confirm('Item Qunatity will be made 0. Do you want Proceed?')){
+      //this.removeItem(item)
+    }}
+    else{
     item.qty--;
     this.calcCartTotal();
   }
+}
 
-  removeItem(item:IProduct){
+   removeItem(item:IProduct){
 
     if(confirm(`Are you sure to remove the ${item.name} from cart?`)){
-    this.cartService.deleteItem(item.id).subscribe();
-      console.log(item);
+    this.cartService.deleteCart(item.id);
+      //console.log(item);
       this.calcCartTotal();
     
     console.log(this.cartItems);
     }
     this.calcCartTotal();
   }
-
+ 
 }

@@ -61,15 +61,18 @@ export class ProductAddComponent implements OnInit {
   ngOnInit(): void {
     this.addProduct = this.fb.group({
       id: [],
-      name: ['Abc', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      description: ['some information', [Validators.required]],
-      brand: [0, [Validators.required]],
+      name: ['Abc', [Validators.required, 
+        Validators.minLength(2)]],
+      description: ['some information', [Validators.required,Validators.minLength(4),
+        Validators.maxLength(200)]],
+      brand: ['', [Validators.required,Validators.minLength(2)]],
       category: ['', [Validators.required]],
-      imageurl: ['', Validators.required],
-      price: [0, [Validators.required]],
-      qty: [0, [Validators.required]],
-      rating: [0, [Validators.required]]
-    });
+      imageurl: ['', [Validators.required]],
+      price: [1, [Validators.required,Validators.min(1)]],
+      qty: [1, [Validators.required,Validators.min(1)]],
+      rating: [1, [Validators.required,Validators.max(5),Validators.min(1)]]
+      });
+
 
     this.product$ = this.store.select(getCurrentProduct)
       .pipe(
@@ -169,6 +172,11 @@ export class ProductAddComponent implements OnInit {
     }
 
   }
+
+  public myError = (controlName: string, errorName: string) =>{
+    return this.addProduct.controls[controlName].hasError(errorName);
+    }
+
 
 
 

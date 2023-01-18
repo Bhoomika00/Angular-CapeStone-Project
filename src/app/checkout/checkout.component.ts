@@ -21,12 +21,12 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.checkOut=this.fb.group({
       cname:['John Abe',[Validators.required,Validators.minLength(2)]],
-      cnum:['XXXX-XXXX-XXXX',[Validators.required,Validators.maxLength(12)]],
+      cnum:['XXXXXXXXXXXX',[Validators.required,Validators.minLength(12),Validators.maxLength(12)]],
       expDate:['09/09/2025',[Validators.required]],
-      cvv:['',[Validators.required,Validators.maxLength(3)]],
+      cvv:['',[Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
     });
 
-    this.cartService.getCartItems().subscribe((items: IProduct[]) => {
+    this.cartService.getProducts().subscribe((items: IProduct[]) => {
       this.cart = items;
       this.calcCartTotal();
       console.log(items);
@@ -52,6 +52,10 @@ export class CheckoutComponent implements OnInit {
       this.cartTotal += (item.qty * item.price)
     })
   }
+  public myError = (controlName: string, errorName: string) =>{
+    return this.checkOut.controls[controlName].hasError(errorName);
+    }
+
 
 
 
