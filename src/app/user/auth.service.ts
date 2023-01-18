@@ -80,6 +80,12 @@ export class AuthService{
         return true;
     }
 
+    isUser():boolean{
+      if(this.currentUser)
+        return this.currentUser.isAdmin;
+      return false;
+    }
+
 
 
 

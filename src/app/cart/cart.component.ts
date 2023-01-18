@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from '../products/product';
 import { CartService } from '../shared/cart.service';
+import { AuthService } from '../user/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,7 @@ export class CartComponent implements OnInit {
   cartTotal: number=0;
   totalPrice:number=0;
 
-  constructor(private cartService:CartService){}
+  constructor(private cartService:CartService,private router:Router,private authService:AuthService){}
   
 
   ngOnInit(): void {
@@ -68,6 +70,15 @@ export class CartComponent implements OnInit {
     console.log(this.cartItems);
     }
     this.calcCartTotal();
+  }
+
+  isLoggedIn(){
+    console.log('in checkout navigation')
+    if(!this.authService.isLoggedInFunc()){
+    this.router.navigate(['/login']);
+    }
+    else
+      this.router.navigate(['/checkOut']);
   }
  
 }

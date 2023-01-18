@@ -29,7 +29,7 @@
                 <i class="fa fa-plus"></i>
               </button>
             </div>
-            <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
+            <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
               <h5 class="mb-0">Unit Price:<br>{{item.price | currency:'INR'}}</h5>
             </div>
            <!--  <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
@@ -41,15 +41,22 @@
           </div>
         </div>
       </div>
-        <hr>
+        
         
     </div>
     
-    <p ><strong>Total order:</strong> {{ cartTotal | currency:'INR' }}</p>
+    <p id='total' ><strong>Total order:</strong> {{ cartTotal | currency:'INR' }}</p>
+    <br>
+    <br>
 
 
-    <button mat-button  id='checkOut' class='col-50 btn btn-primary' routerLink='/checkout'>Checkout</button>
+    
   </div>
-  <div *ngIf='!cartItems.length' style='color:red;text-align: center;'>No items in cart.Add items to cart to continue Shopping.</div>
-  <button mat-button class='btn btn-success'id='continue' routerLink='/products'>Continue Shopping</button>
+  
+
+  <div id='noItems'*ngIf='!cartItems.length' style='color:red;text-align: center;'>No items in cart.Add items to cart to continue Shopping.</div>
+  <div class='btn-div'>
+    <button mat-button  id='continue' routerLink='/products'>Continue Shopping</button>
+  <button  mat-button *ngIf='cartItems.length' id='checkOut'  (click)='isLoggedIn()'>Checkout</button>
+  </div>
 </div>

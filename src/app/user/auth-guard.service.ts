@@ -14,6 +14,7 @@ export class AuthGuard implements CanActivate{
 }
  checkLoggedIn(url:string):boolean{
     //checking if user is login or not
+    console.log(`${url} from authgaurd`);
     if(this.authService.isLoggedInFunc()){
         
         //this route will be active only for admin users
@@ -22,18 +23,19 @@ export class AuthGuard implements CanActivate{
 
     if(this.authService.isAdmin()){
      console.log('Auth guard check for admin role');
-     //this.router.navigate(['/addProduct']);
      return true;
     }
-    else{
+
+   
+   else{
         alert('Only admins can access this page');
         this.router.navigate(['#'])
         return true;
     }
     
 }
-    
     this.authService.redirectToUrl=url;
+    
     this.router.navigate(['/login']);
     return false;
  }

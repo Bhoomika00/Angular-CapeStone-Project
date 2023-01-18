@@ -13,6 +13,7 @@ export class NavbarComponent implements OnChanges {
 
  
   searchItem='';
+  
   //isLoggedIn:boolean=false;
   @Input() totalItem : number = 0;
 cart:IProduct[]=[];

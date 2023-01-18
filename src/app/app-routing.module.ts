@@ -10,6 +10,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { AuthGuard } from './user/auth-guard.service';
 import { AdminHomeComponent } from './products/admin-home/admin-home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PageNotFoundComponent } from './pageNotFound/page-not-found.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'home'},
@@ -17,9 +18,7 @@ const routes: Routes = [
   {path:'about-us',component:AboutUsComponent},
   {path:'cart',
   component:CartComponent,
-  
-//canActivate:[AuthGuard]
-}  ,
+      }  ,
   {path:'login',component:LoginComponent},
   {path:'contact-us',component:ContactUsComponent},//this will be module
   {path:'products',
@@ -28,8 +27,9 @@ const routes: Routes = [
   loadChildren:()=>import('../app/products/product.module').then((m)=>m.ProductModule),
 },
 {path:'products/:id',component:ProductDetailComponent},
-{path:'adminHome',component:AdminHomeComponent,pathMatch:'full'},
-{path:'checkout',component:CheckoutComponent}
+
+{path:'checkOut',component:CheckoutComponent},
+{path:'**',component:PageNotFoundComponent}
 ];
 
 @NgModule({

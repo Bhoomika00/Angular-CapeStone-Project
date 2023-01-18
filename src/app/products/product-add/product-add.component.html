@@ -12,7 +12,7 @@
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter name</mat-label> 
           <input matInput
-          (blur)='blur()'  #name type='text' formControlName='name' id='name' name='name' required> 
+           #name type='text' formControlName='name' id='name' name='name' required> 
           <mat-error *ngIf="myError('name', 'required')">First Name is required</mat-error>
           <mat-error *ngIf="myError('name', 'minlength')">Minimum 2 characters  are required</mat-error>
 
@@ -23,7 +23,7 @@
         <label for="brand">Product Brand:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Brand</mat-label> 
-          <input  (blur)='blur()'
+          <input 
            matInput  #brand type='text' formControlName='brand' id='brand' name='brand' required> 
            <mat-error *ngIf="myError('brand', 'required')">Brand Name is required</mat-error>
            <mat-error *ngIf="myError('brand', 'minlength')">Minimum 2 characters  are required</mat-error>
@@ -36,7 +36,7 @@
         <label for="category">Product Category:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Category</mat-label> 
-          <input matInput  (blur)='blur()'
+          <input matInput 
             #category type='text' formControlName='category' id='category' name='category' required> 
             <mat-error *ngIf="myError('category', 'required')">Category is required</mat-error>
             
@@ -50,7 +50,7 @@
         <label for="description">Product Description:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Description</mat-label> 
-          <textarea matInput  (blur)='blur()'
+          <textarea matInput 
            #description type='text' formControlName='description' id='description' name='description' required> 
             </textarea>
 
@@ -67,7 +67,7 @@
         <label for="price">Product Price:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Price</mat-label> 
-          <input matInput  (blur)='blur()'
+          <input matInput 
             #price type='number' value=1 formControlName='price' id='price' name='price' required> 
             <mat-error *ngIf="myError('price', 'required')"> Price is required</mat-error>
            
@@ -80,7 +80,7 @@
         <label for="rating">Product rating:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter rating</mat-label> 
-          <input matInput  (blur)='blur()'
+          <input matInput 
            #rating type='number' formControlName='rating' id='rating' name='rating' required> 
            <mat-error *ngIf="myError('rating', 'required')">Rating is required</mat-error>
            <mat-error *ngIf="myError('rating', 'max')">Rating should be in range of 1 to 5</mat-error>
@@ -96,7 +96,7 @@
         <label for="imageurl">Product Image:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Image url</mat-label> 
-          <input matInput  (blur)='blur()'
+          <input matInput  
            #imageurl type='text' formControlName='imageurl' id='imageurl' name='imageurl' required> 
            <mat-error *ngIf="myError('imageurl', 'required')">Image URL is required</mat-error>
           
@@ -109,8 +109,8 @@
         <label for="qty">Product Quantity:</label>
         <mat-form-field appearance="fill" [style.width.px]=500>
            <mat-label>Enter Quantity</mat-label> 
-          <input matInput  (blur)='blur()'
-           #qty type='number' formControlName='qty' id='qty' name='qty' required> 
+          <input matInput 
+           #qty type='number' formControlName='qty' id='qty' name='qty' min='1' required> 
            <mat-error *ngIf="myError('qty', 'required')">Quantity is required</mat-error>
            <mat-error *ngIf="myError('qty', 'min')">Quantity should be at least 1</mat-error>
 
@@ -124,14 +124,15 @@
 
 
       <button class="btn btn-danger" type="button"
-      (click)="deleteEntry(product)" [disabled]='product.id==0'>Delete Product<i class='fa fa-trash'></i></button>
+      (click)="deleteEntry(product)" [disabled]='product.id==0'>DELETE</button>
 
       
       
 
       <button
       [disabled]='!addProduct.valid ||!addProduct.dirty' 
-       id='btn'class="btn btn-success">Save Entry</button>
+       id='btn'class="btn btn-success">{{product.id==0 ? 'ADD' : 'EDIT'}} </button>
+       <button id='cancel'class='btn btn-primary'routerLink='/products'>Cancel</button>
     </form>
     </div>
     </div>

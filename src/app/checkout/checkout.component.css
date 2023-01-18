@@ -9,6 +9,11 @@
     height:50px;
   }
 
+  #card{
+    text-align:center;
+
+  }
+
   form{
     width: full-width;
    
@@ -16,6 +21,7 @@
     text-align: center;
     margin-left: 20px;
     margin-right: 20px;
+    background-color:cornsilk;
 
 
   }

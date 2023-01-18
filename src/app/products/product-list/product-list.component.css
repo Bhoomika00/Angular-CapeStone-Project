@@ -3,6 +3,8 @@
     /*display:block;*/
     flex-direction:column;
     text-align: center;
+    margin-left:10px;
+    margin-right:10px;
     
    
    
@@ -22,4 +24,7 @@ p{
 #admin{
     background-color: orange;
     float: right;
+}
+button{
+    width:100%
 }

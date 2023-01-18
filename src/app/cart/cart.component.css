@@ -4,9 +4,31 @@ img{
 #continue{
     
     text-align: center;
+    background-color: green;
     /*display: inline-flex;*/
 }
+#checkOut{
+    background-color: blueviolet;
+    margin-left: 10px;
+}
 
-button{
-    flex: 1 1 auto;
+#noItems{
+text-align: center;
+}
+#total{
+    float:right;
+    margin-right:100px;
+}
+
+.btn-div{
+    
+    flex:1 1 auto;
+    margin-left:200px;
+    margin-right:100px;
+   display: center;
+   
+
+    text-align: center;
+    flex-direction: row;
+    
 }

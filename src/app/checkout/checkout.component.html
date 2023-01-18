@@ -1,14 +1,38 @@
 
-    <button (click)='visibility()'id ='upi' >UPI payment</button>
-<div class='upi-icon' *ngIf='show1'>
-    <i class='fab fa-google-pay' style='color:red'>Google Pay</i>
-    <p>Amazon pay</p>
-</div>
-
-<button id='card' (click)='visibility()'>Card Payment</button>
-<form [formGroup]="checkOut" (ngSubmit)="onSubmit()">
-<div class="col-100" *ngIf='show'>
     
+
+<form [formGroup]="checkOut" (ngSubmit)="onSubmit()">
+    <div id='card'><h1>Payment</h1></div>
+<div class="col-100">
+
+    <div>Shipping Details:</div>
+    <p>
+        <label for="name"> Name:</label>
+        <mat-form-field appearance="outline" [style.width.px]=400>
+            <mat-label>Name:</mat-label>
+            <input matInput #name formControlName='name'  type='text'id='name' name='name'/>
+            <mat-error *ngIf="myError('name', 'required')">Name is required</mat-error>
+             <mat-error *ngIf="myError('name', 'minlength')">Minimum 2 characters  are required</mat-error>
+           
+        </mat-form-field>
+   </p>
+
+   <p>
+    <label for="addr">Adrress(for Delivery):</label>
+    <mat-form-field appearance="outline" [style.width.px]=400>
+        <mat-label>Address:</mat-label>
+        <textarea matInput #addr formControlName='addr'  type='text'id='addr' name='addr'></textarea>
+        <mat-error *ngIf="myError('addr', 'required')">Name is required</mat-error>
+         <mat-error *ngIf="myError('addr', 'minlength')">Minimum 2 characters  are required</mat-error>
+         <mat-error *ngIf="myError('addr', 'maxlength')">Only 200 charcters are allowed</mat-error>
+    </mat-form-field>
+</p>
+
+
+
+
+    <hr>
+    <div>Card Details:</div>
     <label for="fname">Accepted Cards</label>
     <div class="icon-container">
       <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -20,7 +44,7 @@
         <label for="cname">Card holder Name:</label>
         <mat-form-field appearance="outline" [style.width.px]=400>
             <mat-label>Name:</mat-label>
-            <input matInput #cname formControlName='cname' pattern="[A-Za-z]*" type='text'id='cname' name='cname'/>
+            <input matInput #cname formControlName='cname'  type='text'id='cname' name='cname'/>
             <mat-error *ngIf="myError('cname', 'required')">Name is required</mat-error>
              <mat-error *ngIf="myError('cname', 'minlength')">Minimum 2 characters  are required</mat-error>
            
@@ -38,12 +62,20 @@
 </p>
     <p>
     <label for="expDate">Expiry Date:</label>
-    <mat-form-field appearance="outline" [style.width.px]=400>
-        <mat-label>Expiry Date</mat-label>
-        <input matInput formControlName='expDate' id='expDate' name='expDate'/>
-       
+    <mat-form-field [style.width.px]=400>
+
+        <input matInput #expDate [matDatepicker]="pickeryear" min='19/01/2023'
+
+         placeholder="Choose a date"id='expDate' name='expDate'>
+
+        <mat-datepicker-toggle  [for]="pickeryear">
+
+        </mat-datepicker-toggle>
+
+        <mat-datepicker #pickeryear startView="year"></mat-datepicker>
+
     </mat-form-field>
-    
+
 </p>
 
     <p>
@@ -51,14 +83,18 @@
         <mat-form-field appearance="outline" [style.width.px]=400>
             <mat-label>CVV</mat-label>
             <input matInput formControlName='cvv' id='cvv' name='cvv'/>
-           
+            <mat-error *ngIf="myError('cvv', 'required')">CVV is required</mat-error>
+        <mat-error *ngIf="myError('cvv', 'maxlength')">3 digit credit card number is required</mat-error>
+        <mat-error *ngIf="myError('cvv', 'minlength')">3 digit credit card number is required</mat-error>
+       
+       
         </mat-form-field>
     </p>
 
     <p>Amount: {{cartTotal | currency:'INR'}}</p>
     
 
-    <button mat-button type="submit" [disabled]='!checkOut.valid'>Pay</button>
+    <button mat-button id='btn' type="submit" [disabled]='!checkOut.valid'>Pay</button>
 
       
     </div>

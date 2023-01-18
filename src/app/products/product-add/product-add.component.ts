@@ -27,36 +27,9 @@ export class ProductAddComponent implements OnInit {
 
 
 
-  displayMessage: { [key: string]: string } = {};
-  private validationMessages!: { [key: string]: { [key: string]: string } };
-
-  private genericValidator!: GenericValidator;
-
-  constructor(private store: Store<State>, private fb: FormBuilder, private router: Router, private productService: ProductService) {
-
-    this.validationMessages = {
-
-      name: {
-        required: 'Product name is required ',
-        minLength: 'Product name must have 3 characters',
-        maxLength: 'Product name must have less than  equal to 10 chars'
-      },
-      category: {
-        required: 'Category is required'
-      },
-      price: {
-        required: 'Price is required'
-      }, image: {
-        required: 'Image is required'
-      }, rating: {
-        required: 'Rating is required'
-      },
-
-
-    };
-    this.genericValidator = new GenericValidator(this.validationMessages);
-
-  }
+ 
+  constructor(private store: Store<State>, private fb: FormBuilder, 
+    private router: Router, private productService: ProductService) {}
 
   ngOnInit(): void {
     this.addProduct = this.fb.group({
@@ -82,17 +55,11 @@ export class ProductAddComponent implements OnInit {
     console.log('selected current product in ng onit add product ', this.product);
 
     // Watch for value changes for validation
-    this.addProduct.valueChanges.subscribe(
-      () => this.displayMessage =
-        this.genericValidator.processMessages(this.addProduct)
-    );
     console.log('value in form changes')
 
 
 
-    this.addProduct.valueChanges.
-      subscribe(() => this.displayMessage = this.genericValidator.processMessages(this.addProduct))
-
+   
 
   }
 
@@ -151,11 +118,8 @@ export class ProductAddComponent implements OnInit {
   }
 
 
-  //validating on blur ,if user tabs out through the form fields
-  blur(): void {
-    this.displayMessage = this.genericValidator.processMessages(this.addProduct);
-
-  }
+  
+  
 
   deleteEntry(a:IProduct):void{
     /* this.buttonName='Delete entry';

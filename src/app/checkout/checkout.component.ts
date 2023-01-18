@@ -16,10 +16,13 @@ export class CheckoutComponent implements OnInit {
   show1:boolean=true;
   cart:IProduct[]=[];
   cartTotal!: number;
+  pageTitle:string='Payment';
 
   constructor(private router:Router,private fb:FormBuilder,private cartService:CartService){}
   ngOnInit(): void {
     this.checkOut=this.fb.group({
+      name:['John Abe',[Validators.required,Validators.minLength(2)]],
+      addr:['Pune,Maharashtra',[Validators.required,Validators.minLength(2),Validators.maxLength(200)]],
       cname:['John Abe',[Validators.required,Validators.minLength(2)]],
       cnum:['XXXXXXXXXXXX',[Validators.required,Validators.minLength(12),Validators.maxLength(12)]],
       expDate:['09/09/2025',[Validators.required]],
@@ -38,6 +41,7 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit(){
     alert('Payment successfull');
+    this.cartService.emptyCart();
     this.router.navigate(['/products']);
   }
 

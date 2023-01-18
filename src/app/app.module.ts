@@ -22,6 +22,7 @@ import { AppEffects } from './app.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PageNotFoundComponent } from './pageNotFound/page-not-found.component';
 
 
 
@@ -37,7 +38,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CartComponent,
     LoginComponent,
     ContactUsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PageNotFoundComponent
     
 
   

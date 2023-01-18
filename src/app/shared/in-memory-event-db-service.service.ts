@@ -60,7 +60,33 @@ export class InMemoryEventDbService implements InMemoryDbService {
           "brand":"One Plus",
           "description":"This is New model of One plus. 12gb RAM and 6gb ROM",
           "qty": 0
-        }
+        },
+        {
+          "id": 901,
+            "name":"Sports Shoes ",
+            
+            "category":"FootWear",
+            "price": 1000,
+            "rating": 4.5,
+            "imageurl":"../../assets/images/shoes.jpg",
+            "brand":"Nike",
+            "description":"This is New model of Sport shoes for althletes.Flexible and durable",
+            "qty": 0
+          },
+          {
+            "id": 801,
+              "name":"Vegetable Basket",
+              
+              "category":"Vegetables",
+              "price": 300,
+              "rating": 4.5,
+              "imageurl":"../../assets/images/vegetable.jpg",
+              "brand":"Farm fresh",
+              "description":"This Basket contains 10 different vegetables.",
+              "qty": 0
+            }
+    
+  
 
     ]
 

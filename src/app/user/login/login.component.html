@@ -8,13 +8,24 @@
   
   <mat-form-field appearance="outline" [style.width.px]=500>
     <mat-label>Username</mat-label>
-    <input matInput  #userName="ngModel"id='userName' name='userName' ngModel>
+    <input matInput  #userName="ngModel"id='userName' name='userName' type='text'required ngModel>
   </mat-form-field>
+  <div *ngIf="!userName?.valid && (userName?.dirty || userName?.touched)" class="error">
+    <div *ngIf="userName.errors?.['required']">
+      Name is required
+ </div>
+ </div>
 
   <mat-form-field appearance="outline" [style.width.px]=500>
     <mat-label>Password</mat-label>
-    <input matInput #password="ngModel"id='password' name='password' ngModel>
+    <input matInput #password="ngModel"id='password' name='password'type='password'required ngModel>
   </mat-form-field>
+  <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="error">
+    <div *ngIf="password.errors?.['required']">
+      Password is required
+ </div>
+ </div>
+
 
  
 

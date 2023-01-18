@@ -4,18 +4,22 @@
 
 .card{
     width:100%;
-    background-color:orange;
+    
 }
 
 form{
     width: full-width;
    
-
+    background-color: cornflowerblue;
     text-align: center;
     margin-left: 20px;
     margin-right: 20px;
 
     
+}
+
+#btn,#cancel{
+    margin-left:20px;
 }
 
 
