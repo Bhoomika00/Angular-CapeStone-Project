@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PageNotFoundComponent } from './pageNotFound/page-not-found.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -55,6 +56,7 @@ import { PageNotFoundComponent } from './pageNotFound/page-not-found.component';
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument(),
 
     //All matt Module
     MaterialModule
